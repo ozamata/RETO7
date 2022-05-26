@@ -1,6 +1,6 @@
 'use strict';
 import { Contacto } from "../js/Contacto.js";
-import {obtenerContactos} from '../js/apiUser.js';
+import {obtenerUsuarios} from '../js/apiUser.js';
 
 const contactosData = 'crud-contacto';
 let contactos = [];
@@ -491,54 +491,54 @@ const documentReady = () => {
 };
 
 
-const apiDeport=()=>{
+const apiWeb=()=>{
   const tBodyApi = document.querySelector('#tBodyApi');
-  obtenerContactos().then( res => {
+  obtenerUsuarios().then( res => {
       res.forEach((element) => {
 
-        const { idEvent, strEvent, strEventAlternate, trSport,idLeague,strLeague,strSeason} = element;
+        const { id, email, first_name, last_name,avatar } = element;
+
         const fragment = document.createDocumentFragment();
         const tableRow = document.createElement('tr');
 
-        const tHidEvent = document.createElement('th');
-        tHidEvent.textContent = idEvent;
+        const tHId = document.createElement('th');
+        tHId.textContent = id;
+
         
-        const tDstrEvent = document.createElement('td');
-        tDstrEvent.textContent = strEvent;
+        const tDUrlImage = document.createElement('td');
+        tDUrlImage.style.maxWidth = '128px'
 
-        const tDstrEventAlternate = document.createElement('td');
-        tDstrEventAlternate.textContent = strEventAlternate;
+        const tDUrlImageImg = document.createElement('img');
+        tDUrlImageImg.setAttribute('src', avatar);
+        tDUrlImageImg.setAttribute('alt', first_name);
+        tDUrlImageImg.classList.add('img-fluid');
 
-        const tDstrSport = document.createElement('td');
-        tDstrSport.textContent = trSport;
+        const tDEmail = document.createElement('td');
+        tDEmail.textContent = email;
 
-        const tDsidLeague = document.createElement('td');
-        tDsidLeague.textContent = idLeague;
+        const tDNombres = document.createElement('td');
+        tDNombres.textContent = first_name;
 
-        const tDstrLeague = document.createElement('td');
-        tDstrLeague.textContent = strLeague;
+        const tDApellidos = document.createElement('td');
+        tDApellidos.textContent = last_name;
 
-        const tDstrSeason = document.createElement('td');
-        tDstrSeason.textContent = strSeason;
 
-        tableRow.appendChild(tHidEvent);
-        tableRow.appendChild(tDstrEvent);
-        tableRow.appendChild(tDstrEventAlternate);
-        tableRow.appendChild(tDstrSport);
-        tableRow.appendChild(tDsidLeague);
-        tableRow.appendChild(tDstrLeague);
-        tableRow.appendChild(tDstrSeason);
+        
+        tableRow.appendChild(tHId);
+        tDUrlImage.appendChild(tDUrlImageImg);
+        tableRow.appendChild(tDEmail);
+        tableRow.appendChild(tDNombres);
+        tableRow.appendChild(tDApellidos);
+        tableRow.appendChild(tDUrlImage);
         fragment.appendChild(tableRow);
         tBodyApi.appendChild(fragment);
 
       }); 
   })
-
-  console.log("apiDeport");
-  apiDeport();
 };
 
-
+apiWeb();
+console.log(apiWeb());
 
 
 
