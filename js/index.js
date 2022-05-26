@@ -496,7 +496,7 @@ const apiWeb=()=>{
   obtenerHinchas().then( res => {
       res.forEach((element) => {
 
-        const { id, email, first_name, last_name,avatar } = element;
+        const { id, first_name, last_name,avatar } = element;
 
         const fragment = document.createDocumentFragment();
         const tableRow = document.createElement('tr');
@@ -513,9 +513,7 @@ const apiWeb=()=>{
         tDUrlImageImg.setAttribute('alt', first_name);
         tDUrlImageImg.classList.add('img-fluid');
 
-        const tDEmail = document.createElement('td');
-        tDEmail.textContent = email;
-
+     
         const tDNombres = document.createElement('td');
         tDNombres.textContent = first_name;
 
@@ -526,7 +524,6 @@ const apiWeb=()=>{
         
         tableRow.appendChild(tHId);
         tDUrlImage.appendChild(tDUrlImageImg);
-        tableRow.appendChild(tDEmail);
         tableRow.appendChild(tDNombres);
         tableRow.appendChild(tDApellidos);
         tableRow.appendChild(tDUrlImage);
