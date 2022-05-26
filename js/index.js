@@ -492,7 +492,7 @@ const documentReady = () => {
 
 
 const apiDeport=()=>{
-  const tBodyApi = document.querySelector('#tBodyContacto');
+  const tBodyApi = document.querySelector('#tBodyApi');
   obtenerContactos().then( res => {
       res.forEach((element) => {
 
