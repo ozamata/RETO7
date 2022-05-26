@@ -1,6 +1,6 @@
 'use strict';
 import { Contacto } from "../js/Contacto.js";
-import {obtenerUsuarios} from '../js/apiUser.js';
+import {obtenerHinchas} from '../js/apiUser.js';
 
 const contactosData = 'crud-contacto';
 let contactos = [];
@@ -493,7 +493,7 @@ const documentReady = () => {
 
 const apiWeb=()=>{
   const tBodyApi = document.querySelector('#tBodyApi');
-  obtenerUsuarios().then( res => {
+  obtenerHinchas().then( res => {
       res.forEach((element) => {
 
         const { id, email, first_name, last_name,avatar } = element;
