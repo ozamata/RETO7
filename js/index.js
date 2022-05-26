@@ -535,7 +535,7 @@ const apiDeport=()=>{
   })
 
   console.log("apiDeport");
-  document.getElementById('list-profile-list').addEventListener('load', apiDeport);
+  apiDeport();
 };
 
 
